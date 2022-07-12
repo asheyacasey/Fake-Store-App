@@ -14,7 +14,7 @@ class AllCategoryScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Categories'),
         centerTitle: true,
-        backgroundColor: Colors.red,
+        backgroundColor: Colors.deepPurpleAccent,
       ),
       body: FutureBuilder(
         future: service.getAllCategories(),

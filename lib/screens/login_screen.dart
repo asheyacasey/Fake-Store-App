@@ -22,7 +22,7 @@ class LoginScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Flutter Shop'),
         centerTitle: true,
-        backgroundColor: Colors.redAccent,
+        backgroundColor: Colors.deepPurpleAccent,
       ),
       body: Container(
         margin: const EdgeInsets.all(20),
@@ -83,10 +83,12 @@ class LoginScreen extends StatelessWidget {
                 },
                 child: const Text(
                   'Login',
-                  style: TextStyle(
-                    fontSize: 25,
-                    fontWeight: FontWeight.bold,
-                  ),
+                ),
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.purple,
+                    textStyle: TextStyle(
+                        fontSize: 20,
+                        ),
                 ),
               ),
             ),

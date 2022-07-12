@@ -13,7 +13,7 @@ class ProductDetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.redAccent,
+        backgroundColor: Colors.deepPurpleAccent,
       ),
       body: Container(
         margin: const EdgeInsets.all(20),

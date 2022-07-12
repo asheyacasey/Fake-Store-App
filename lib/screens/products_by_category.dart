@@ -20,7 +20,7 @@ class ProductsByCategoryScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(categoryName.toUpperCase()),
         centerTitle: true,
-        backgroundColor: Colors.red,
+        backgroundColor: Colors.deepPurpleAccent,
       ),
       body: FutureBuilder(
         future: service.getProductsByCategory(categoryName),

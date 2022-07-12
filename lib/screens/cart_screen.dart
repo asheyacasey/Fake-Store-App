@@ -18,7 +18,7 @@ class CartScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Cart'),
         centerTitle: true,
-        backgroundColor: Colors.red,
+        backgroundColor: Colors.deepPurpleAccent,
       ),
       body: FutureBuilder(
         future: service.getCart('1'),

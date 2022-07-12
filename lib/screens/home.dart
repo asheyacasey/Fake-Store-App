@@ -18,17 +18,17 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Home'),
         centerTitle: true,
-        backgroundColor: Colors.redAccent,
+        backgroundColor: Colors.deepPurpleAccent,
         actions: [
           IconButton(
-            icon: const Icon(Icons.view_list),
+            icon: const Icon(Icons.filter_list),
             onPressed: () => Navigator.push(
               context,
               MaterialPageRoute(builder: (_) => const AllCategoryScreen()),
             ),
           ),
           IconButton(
-            icon: const Icon(Icons.shopping_cart),
+            icon: const Icon(Icons.local_mall,),
             onPressed: () => Navigator.push(
               context,
               MaterialPageRoute(
