@@ -1,7 +1,10 @@
 import 'package:fake_store/models/cart.dart';
 import 'package:fake_store/models/login_user.dart';
-import 'package:http/http.dart' as http;
 import 'package:fake_store/models/product.dart';
+import 'package:fake_store/models/update_cart.dart';
+
+import 'package:http/http.dart' as http;
+
 import 'dart:convert';
 
 
@@ -51,7 +54,7 @@ class ApiService {
 
   Future<void> updateCart(int cartId, int productId) {
     final cartUpdate =
-    Cart(userId: cartId, date: DateTime.now(), products: [
+    UpdateCart(userId: cartId, date: DateTime.now(), products: [
       {'productId': productId, 'quantity': 1}
     ]);
     return http.put(Uri.parse('$baseUrl/carts/$cartId'),
@@ -81,7 +84,9 @@ class ApiService {
   }
 
   Future<Cart?> getCart(String id) {
-    return http.get(Uri.parse('$baseUrl/carts/$id')).then((data) {
+    return http
+        .get(Uri.parse('$baseUrl/carts/$id'), headers: headers)
+        .then((data) {
       if (data.statusCode == 200) {
         final jsonData = json.decode(data.body);
         return Cart.fromJson(jsonData);
@@ -89,6 +94,7 @@ class ApiService {
       return null;
     }).catchError((err) => print(err));
   }
+
 
   Future<dynamic> login(String username, String password) {
     final credentials = UserLogin(username: username, password: password);
