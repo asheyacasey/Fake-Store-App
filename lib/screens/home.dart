@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 
 import '../models/product.dart';
-import '../services/api_service.dart';
+import 'package:fake_store/services/api_service.dart';
 import 'all_category.dart';
 import 'cart_screen.dart';
 import 'product_detail.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
+
+  ApiService get service => GetIt.I<ApiService>();
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +40,7 @@ class HomeScreen extends StatelessWidget {
       ),
       body: Center(
         child: FutureBuilder(
-            future: getAllProducts(),
+            future: service.getAllProducts(),
             builder: (_, AsyncSnapshot<List<Product>> snapshot) {
               if (!snapshot.hasData) {
                 return const CircularProgressIndicator();
@@ -60,7 +63,7 @@ class HomeScreen extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (_) => ProductDetailScreen(),
+                          builder: (_) => ProductDetailScreen(id: index+1),
                         ),
                       );
                     },
